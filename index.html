@@ -1,1 +1,21 @@
 <!-- Fichier html -->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Petit programme simple</title>
+</head>
+<body style="text-align:center; font-family:sans-serif; margin-top:50px;">
+  <h1 id="titre">Bonjour !</h1>
+  <button onclick="changerCouleur()">Changer la couleur</button>
+
+  <script>
+    function changerCouleur() {
+      const couleurs = ["red", "blue", "green", "purple", "orange"];
+      const alea = Math.floor(Math.random() * couleurs.length);
+      document.body.style.backgroundColor = couleurs[alea];
+    }
+  </script>
+</body>
+</html>
