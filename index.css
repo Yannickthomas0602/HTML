@@ -1,0 +1,131 @@
+/* styles.css
+   Pour lier : <link rel="stylesheet" href="styles.css">
+*/
+
+/* Variables pour personnaliser rapidement */
+:root{
+  --bg: #ffffff;
+  --text: #222222;
+  --accent: #ff4b5c;
+  --accent-2: #ff8a65;
+  --button-text: #ffffff;
+  --card-bg: rgba(255,255,255,0.85);
+  --shadow: 0 8px 24px rgba(34,34,34,0.12);
+  --radius: 14px;
+  --max-width: 900px;
+  --gap: 18px;
+}
+
+/* Respect des préférences d'animation */
+@media (prefers-reduced-motion: reduce) {
+  * { transition-duration: 0s !important; animation-duration: 0s !important; }
+}
+
+/* Mise en page générale */
+* { box-sizing: border-box; }
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  transition: background-color 450ms ease; /* transition pour quand le JS change la couleur */
+}
+
+/* Conteneur central */
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+/* Card légère derrière le contenu */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  text-align: center;
+  background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.45));
+  backdrop-filter: blur(6px);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 36px;
+  gap: var(--gap);
+}
+
+/* Titre principal */
+#titre {
+  margin: 0 0 18px 0;
+  font-size: clamp(1.25rem, 2.5vw, 2rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: rgba(10,10,10,0.92);
+}
+
+/* Texte secondaire (optionnel) */
+.lead {
+  margin: 0 0 22px 0;
+  color: rgba(10,10,10,0.7);
+  font-size: 0.98rem;
+}
+
+/* Bouton principal */
+button {
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: var(--button-text);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  transform-origin: center;
+  transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+  user-select: none;
+}
+
+/* Hover & active */
+button:hover { transform: translateY(-3px); box-shadow: 0 10px 26px rgba(0,0,0,0.16); }
+button:active { transform: translateY(-1px) scale(0.995); }
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(255,75,92,0.18);
+}
+
+/* Friendly small-screen rules */
+@media (max-width: 520px) {
+  .container { padding: 22px; border-radius: 12px; }
+  #titre { font-size: 1.25rem; }
+  button { width: 100%; padding: 14px; font-size: 1.05rem; border-radius: 10px; }
+}
+
+/* Petit badge décoratif sous le bouton (optionnel) */
+.hint {
+  margin-top: 14px;
+  font-size: 0.9rem;
+  color: rgba(0,0,0,0.55);
+}
+
+/* Style pour les couleurs du fond très foncées (contraste texte) */
+body.dark-text-override {
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Alternative : style "danger" si tu veux un rendu plus 'hacker' */
+.hacker {
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(0,255,170,0.06), transparent 8%),
+              radial-gradient(900px 400px at 90% 90%, rgba(255,80,80,0.04), transparent 10%);
+}
+
+/* Small utility */
+.center { display:flex; align-items:center; justify-content:center; }
